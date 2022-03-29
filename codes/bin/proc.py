@@ -14,9 +14,9 @@ import sys
 from config import *
 
 RUN_MADGRAPH = True
-RUN_PYTHIA = False
-RUN_DELPHES = False
-RUN_ANALYSIS = False
+RUN_PYTHIA = True
+RUN_DELPHES = True
+RUN_ANALYSIS = True
 
 # Specific Parameters
 EVENT_NAME = 'ttbar'
@@ -180,7 +180,7 @@ def main(proc_name,sig_flag,gen_proc = True):
             p.wait()
 
             p = subprocess.Popen([HOME_DIR + CODE_DIR + 'dtset', 
-                                  HOME_DIR + 'results/' + proc_name + DELPHES_FILE,
+                                  OUTPUT_DIR + proc_name + DELPHES_FILE,
                                   HOME_DIR + DATASET_DIR + proc_name + str(i) + '.csv'])
             
             p.wait()
