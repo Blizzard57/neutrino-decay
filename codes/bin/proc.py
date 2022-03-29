@@ -11,14 +11,12 @@ from distutils.util import strtobool
 import os
 import subprocess
 import sys
+from config import *
 
-# Constants
-HOME_DIR = '/home/blizzard/Research/'
-CODE_DIR = 'codes/bin/'
-DELPHES_FILE = '/Events/run_01/tag_1_delphes_events.root'
-MADGRAPH_DIR = '/home/blizzard/Research/tools/madGraph/'
-DATASET_DIR = 'datasets/csvdata/'
-TXT_DIR = '/home/blizzard/Research/scratch/'
+RUN_MADGRAPH = True
+RUN_PYTHIA = False
+RUN_DELPHES = False
+RUN_ANALYSIS = False
 
 # Specific Parameters
 EVENT_NAME = 'ttbar'
@@ -126,6 +124,19 @@ def jet_matching(proc):
 
     return ret_val
 
+def get_run_soft():
+    ret_val = ''
+    if RUN_PYTHIA:
+        ret_val += '1\n'
+
+    if RUN_DELPHES:
+        ret_val += '2\n'
+
+    if RUN_ANALYSIS:
+        ret_val += '3\n'
+
+    return ret_val
+
 def main(proc_name,sig_flag,gen_proc = True):
     # The loop starts at 1 as default seed (0) takes a random values of seed
     for i in range(5,NUM_RUNS+5):
@@ -145,7 +156,9 @@ def main(proc_name,sig_flag,gen_proc = True):
 
         # General Output (Same for all the Channels)
         f.write('output ' + HOME_DIR + 'results/' + proc_name + '\n')
-        f.write('launch\n1\n2\n3\ndone\n')
+        f.write('launch\n')
+        f.write(get_run_soft())
+        f.write('done\n')
         f.write('set nevents ' + str(EVENT_NUM) + '\n')
         f.write('set ebeam1 7000.0\nset ebeam2 7000.0\n')
         f.write(jet_matching(proc_name))
@@ -171,8 +184,9 @@ def main(proc_name,sig_flag,gen_proc = True):
                                   HOME_DIR + DATASET_DIR + proc_name + str(i) + '.csv'])
             
             p.wait()
+            
             ## Deleting Garbage
-            #os.system('rm -rf ' + HOME_DIR + 'results/' + proc_name)
+            os.system('rm -rf ' + HOME_DIR + 'results/' + proc_name)
             os.system('rm ' + TXT_DIR + proc_name + '.txt')
 
 if __name__ == '__main__':
@@ -187,4 +201,4 @@ if __name__ == '__main__':
     else:
         raise ValueError('Incorrect arguments. Format : python program.py proc_name is_signal')
 
-    main(gen_proc=True,proc_name = proc,sig_flag = sig)
+    main(gen_proc=RUN_MADGRAPH,proc_name = proc,sig_flag = sig)
