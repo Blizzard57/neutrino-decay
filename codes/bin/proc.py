@@ -155,7 +155,7 @@ def main(proc_name,sig_flag,gen_proc = True):
         f.write(proc_to_gen(proc_name))
 
         # General Output (Same for all the Channels)
-        f.write('output ' + HOME_DIR + 'results/' + proc_name + '\n')
+        f.write('output ' + OUTPUT_DIR + proc_name + '\n')
         f.write('launch\n')
         f.write(get_run_soft())
         f.write('done\n')
