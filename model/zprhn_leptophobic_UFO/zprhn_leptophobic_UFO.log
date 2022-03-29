@@ -1,0 +1,105 @@
+# This file was automatically created by FeynRules 2.3.49
+# Mathematica version: 12.1.0 for Linux x86 (64-bit) (March 18, 2020)
+# Date: Sun 24 Oct 2021 15:39:40
+
+
+# 
+# This is the logfile for the model zprhn_leptophobic
+
+# Authors: N. Christensen, C. Duhr, B. Fuks
+# Model version: 1.4.7
+# Checking the Quantum numbers
+   * Electric charge defined.
+# Checking the Lagrangians
+   * All Lagrangians are ok.
+#
+# Particle definitions
+#
+
+   * No particles removed. All particles correspond to GenInt setup.
+
+# Automatically assigned PDG numbers
+   * Assigned PDG number 9000001 to particle ghA
+   * Assigned PDG number 9000002 to particle ghZ
+   * Assigned PDG number 9000003 to particle ghWp
+   * Assigned PDG number 9000004 to particle ghWm
+
+
+# Compulsory PDG codes:
+   * Class SM leptons complete.
+   * Class SM neutrinos complete.
+   * Class SM quarks complete.
+   * Class SM gauge bosons complete.
+#
+# Parameter definitions
+#
+
+   * All parameters are ok.
+
+
+# Vertices
+   * Calling FeynmanRules for 1 Lagrangians.
+   * Number of classes vertices: 108
+   * Number of flavored vertices: 146
+   * Saved vertices in InterfaceRun[ 1 ].
+   * Checked QNumber conservation.
+      - Quantum number GhostNumber conserved in all vertices.
+      - Quantum number LeptonNumber NOT conserved in the following vertices
+          {H, n1, ve}
+          {H, n2, vm}
+          {H, n3, vt}
+          {H, vebar, n1}
+          {H, vmbar, n2}
+          {H, vtbar, n3}
+          {W, n1, e}
+          {W, n2, mu}
+          {W, n3, ta}
+          {Wbar, ebar, n1}
+          {Wbar, mubar, n2}
+          {Wbar, tabar, n3}
+          {Z, n1, ve}
+          {Z, n2, vm}
+          {Z, n3, vt}
+          {Z, vebar, n1}
+          {Z, vmbar, n2}
+          {Z, vtbar, n3}
+      - Quantum number Q conserved in all vertices.
+      - Quantum number Y conserved in all vertices.
+   * particles.py written.
+   * parameters.py written.
+#
+# Vertex definitions
+#
+
+   * 146 vertices written.
+   * vertices.py written.
+#
+# Lorentz structure definitions
+#
+
+   * 21 lorentz structures written.
+   * lorentz.py written.
+#
+# Coupling definitions
+#
+
+   * 76 couplings written.
+   * couplings.py written.
+#
+# Coupling order definitions
+#
+
+   * 0 couplings orders written.
+   * coupling_orders.py written.
+#
+# Decay definitions
+#
+
+   * 10 decays written.
+   * decay.py not written
+#
+# CTCoupling definitions
+#
+
+   * 0 CTcouplings written.
+   * CT_couplings.py written.

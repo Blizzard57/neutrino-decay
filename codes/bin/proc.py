@@ -145,7 +145,7 @@ def main(proc_name,sig_flag,gen_proc = True):
         f = open(TXT_DIR + proc_name + '.txt','w')
 
         # Default Import and Variable Definitions
-        f.write('import model ' + MADGRAPH_DIR + 'models/zprhn_leptophobic_UFO\n')
+        f.write('import model ' + GIT_DIR + 'model/zprhn_leptophobic_UFO\n')
         f.write('define pb = p b b~\n')
         f.write('define w = w+ w-\n')
         f.write('define la = l+ l-\n')
