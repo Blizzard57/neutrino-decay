@@ -6,8 +6,7 @@ objects = $(patsubst %.c,%.o,$(wildcard *.c))
 
 #PYTHIA8=/home/akanksha/MG5_aMC_v2_5_5/HEPTools/pythia8
 #fastjet=/usr/local
-DELPHES_DIR := /home/blizzard/Research/tools/madGraph/Delphes/
-FASTJET_DIR := /home/blizzard/Research/tools/fastjet-install/
+include MakeConfig
 #HDF5_DIR := /home/student03/tools/hdf5/
 
 #DELPHES_INC := -I$(DELPHES_DIR) -I$(DELPHES_DIR)/classes -I$(DELPHES_DIR)/external
