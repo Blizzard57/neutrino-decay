@@ -1,0 +1,72 @@
+#************************************************************
+#*                     MadGraph5_aMC@NLO                    *
+#*                                                          *
+#*                *                       *                 *
+#*                  *        * *        *                   *
+#*                    * * * * 5 * * * *                     *
+#*                  *        * *        *                   *
+#*                *                       *                 *
+#*                                                          *
+#*                                                          *
+#*         VERSION 3.3.2                 2022-03-18         *
+#*                                                          *
+#*    The MadGraph5_aMC@NLO Development Team - Find us at   *
+#*    https://server06.fynu.ucl.ac.be/projects/madgraph     *
+#*                                                          *
+#************************************************************
+#*                                                          *
+#*               Command File for MadGraph5_aMC@NLO         *
+#*                                                          *
+#*     run as ./bin/mg5_aMC  filename                       *
+#*                                                          *
+#************************************************************
+set group_subprocesses Auto
+set ignore_six_quark_processes False
+set low_mem_multicore_nlo_generation False
+set complex_mass_scheme False
+set include_lepton_initiated_processes False
+set gauge unitary
+set loop_optimized_output True
+set loop_color_flows False
+set max_npoint_for_channel 0
+set default_unset_couplings 99
+set max_t_for_channel 99
+set zerowidth_tchannel True
+set nlo_mixed_expansion True
+import model /home/blizzard/Projects/neutrino-decay/model/zprhn_leptophobic_UFO
+Traceback (most recent call last):
+  File "/home2/vishva.saravanan/projects/kalp/tools/madgraph/models/import_ufo.py", line 204, in get_path_restrict
+    model_path = find_ufo_path(model_name)
+  File "/home2/vishva.saravanan/projects/kalp/tools/madgraph/models/import_ufo.py", line 98, in find_ufo_path
+    raise UFOImportError("Path %s is not a valid pathname" % model_name)
+models.import_ufo.UFOImportError: Path /home/blizzard/Projects/neutrino-decay/model/zprhn_leptophobic_UFO is not a valid pathname
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home2/vishva.saravanan/projects/kalp/tools/madgraph/madgraph/interface/extended_cmd.py", line 1544, in onecmd
+    return self.onecmd_orig(line, **opt)
+  File "/home2/vishva.saravanan/projects/kalp/tools/madgraph/madgraph/interface/extended_cmd.py", line 1493, in onecmd_orig
+    return func(arg, **opt)
+  File "/home2/vishva.saravanan/projects/kalp/tools/madgraph/madgraph/interface/master_interface.py", line 281, in do_import
+    self.cmd.do_import(self, *args, **opts)
+  File "/home2/vishva.saravanan/projects/kalp/tools/madgraph/madgraph/interface/madgraph_interface.py", line 5685, in do_import
+    self.import_command_file(args[1])
+  File "/home2/vishva.saravanan/projects/kalp/tools/madgraph/madgraph/interface/extended_cmd.py", line 1692, in import_command_file
+    self.exec_cmd(line, precmd=True)
+  File "/home2/vishva.saravanan/projects/kalp/tools/madgraph/madgraph/interface/extended_cmd.py", line 1573, in exec_cmd
+    stop = Cmd.onecmd_orig(current_interface, line, **opt)
+  File "/home2/vishva.saravanan/projects/kalp/tools/madgraph/madgraph/interface/extended_cmd.py", line 1493, in onecmd_orig
+    return func(arg, **opt)
+  File "/home2/vishva.saravanan/projects/kalp/tools/madgraph/madgraph/interface/master_interface.py", line 281, in do_import
+    self.cmd.do_import(self, *args, **opts)
+  File "/home2/vishva.saravanan/projects/kalp/tools/madgraph/madgraph/interface/madgraph_interface.py", line 5613, in do_import
+    complex_mass_scheme=self.options['complex_mass_scheme'])
+  File "/home2/vishva.saravanan/projects/kalp/tools/madgraph/models/import_ufo.py", line 247, in import_model
+    model_path, restrict_file, restrict_name = get_path_restrict(model_name, restrict)
+  File "/home2/vishva.saravanan/projects/kalp/tools/madgraph/models/import_ufo.py", line 213, in get_path_restrict
+    model_path = find_ufo_path(model_name)
+  File "/home2/vishva.saravanan/projects/kalp/tools/madgraph/models/import_ufo.py", line 96, in find_ufo_path
+    raise UFOImportError("Path %s is not a valid pathname" % model_name)
+models.import_ufo.UFOImportError: Path /home/blizzard/Projects/neutrino is not a valid pathname
+Fail to write options with error No model currently active, please import a model!
