@@ -13,19 +13,6 @@ import subprocess
 import sys
 from config import *
 
-RUN_MADGRAPH = True
-RUN_PYTHIA = True
-RUN_DELPHES = True
-RUN_ANALYSIS = True
-
-# Specific Parameters
-EVENT_NAME = 'ttbar'
-SIGNAL = False
-
-# Hyper Parameters
-NUM_RUNS = 1
-EVENT_NUM = int(1e4)
-
 def proc_to_gen(proc, signal = 'n2n2'):
     ret_val = ''
     if proc == 'n2n2' and signal == 'n2n2':
@@ -139,13 +126,13 @@ def get_run_soft():
 
 def main(proc_name,sig_flag,gen_proc = True):
     # The loop starts at 1 as default seed (0) takes a random values of seed
-    for i in range(5,NUM_RUNS+5):
+    for i in range(START_SEED,NUM_RUNS+START_SEED):
 
         # Making File for MadGraph
         f = open(TXT_DIR + proc_name + '.txt','w')
 
         # Default Import and Variable Definitions
-        f.write('import model ' + MADGRAPH_DIR + 'models/zprhn_leptophobic_UFO\n')
+        f.write('import model ' + GIT_DIR + 'model/zprhn_leptophobic_UFO\n')
         f.write('define pb = p b b~\n')
         f.write('define w = w+ w-\n')
         f.write('define la = l+ l-\n')
@@ -179,14 +166,14 @@ def main(proc_name,sig_flag,gen_proc = True):
                                  TXT_DIR + proc_name + '.txt'])
             p.wait()
 
-            p = subprocess.Popen([HOME_DIR + CODE_DIR + 'dtset', 
+            p = subprocess.Popen([CODE_DIR + 'dtset', 
                                   OUTPUT_DIR + proc_name + DELPHES_FILE,
-                                  HOME_DIR + DATASET_DIR + proc_name + str(i) + '.csv'])
+                                  DATASET_DIR + proc_name + str(i) + '.csv'])
             
             p.wait()
             
             ## Deleting Garbage
-            os.system('rm -rf ' + HOME_DIR + 'results/' + proc_name)
+            os.system('rm -rf ' + OUTPUT_DIR + proc_name)
             os.system('rm ' + TXT_DIR + proc_name + '.txt')
 
 if __name__ == '__main__':

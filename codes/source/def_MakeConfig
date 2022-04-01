@@ -1,0 +1,5 @@
+# Change it to MakeConfig for it to work with Make
+# Change the paths are required
+
+DELPHES_DIR := /home/blizzard/Research/tools/madGraph/Delphes/
+FASTJET_DIR := /home/blizzard/Research/tools/fastjet-install/
