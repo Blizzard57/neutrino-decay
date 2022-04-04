@@ -155,7 +155,9 @@ def main(proc_name,sig_flag,gen_proc = True):
         # True only for Background
         if not sig_flag:
             f.write('set cut_decays True\n')
-        
+	else:
+	    f.write('set Mn2 '+ MN2 +'\n')       
+ 
         # Closing the file
         f.close()
 
