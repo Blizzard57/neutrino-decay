@@ -189,6 +189,8 @@ int main(int argc,char* argv[]){
     myfile << "ptl,etal,energyl,ptj,etaj,energyj,massj,";
     myfile << "mjj,rjj,rjl,met,n21_1,n21_2,n32_1,n32_2,infl,drfl\n";
 
+    cout << "****** All Entries are : " << allEntries << " *******" << endl;
+
     for(Long64_t entry = 0; entry < allEntries; entry++){
         treeReader->ReadEntry(entry);
         

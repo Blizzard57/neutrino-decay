@@ -125,7 +125,7 @@ def get_run_soft():
     return ret_val
 
 def main(proc_name,sig_flag,gen_proc = True):
-    # The loop starts at 1 as default seed (0) takes a random values of seed
+    # The loop starts at 1 as default seed (0) takes a random value of seed
     for i in range(START_SEED,NUM_RUNS+START_SEED):
 
         # Making File for MadGraph
@@ -155,9 +155,7 @@ def main(proc_name,sig_flag,gen_proc = True):
         # True only for Background
         if not sig_flag:
             f.write('set cut_decays True\n')
-	else:
-	    f.write('set Mn2 '+ MN2 +'\n')       
- 
+        
         # Closing the file
         f.close()
 
