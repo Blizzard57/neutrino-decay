@@ -124,7 +124,7 @@ def get_run_soft():
 
     return ret_val
 
-def main(proc_name,sig_flag,gen_proc = True):
+def main(proc_name,sig_flag,gen_proc = True,mn2 = 1e3):
     # The loop starts at 1 as default seed (0) takes a random value of seed
     for i in range(START_SEED,NUM_RUNS+START_SEED):
 
@@ -155,7 +155,10 @@ def main(proc_name,sig_flag,gen_proc = True):
         # True only for Background
         if not sig_flag:
             f.write('set cut_decays True\n')
-        
+       
+        if sig:
+            f.write('set Mn2 ' + str(mn2) + '\n')
+
         # Closing the file
         f.close()
 
@@ -177,15 +180,17 @@ def main(proc_name,sig_flag,gen_proc = True):
             os.system('rm ' + TXT_DIR + proc_name + '.txt')
 
 if __name__ == '__main__':
-    if len(sys.argv) < 2:
+    if len(sys.argv) < 4:
         proc = EVENT_NAME
         sig = SIGNAL
+        Mn2 = MN2
     
-    elif len(sys.argv) == 3:
+    elif len(sys.argv) == 4:
         proc = sys.argv[1]
         sig = strtobool(sys.argv[2])
+        Mn2 = sys.argv[3]
 
     else:
-        raise ValueError('Incorrect arguments. Format : python program.py proc_name is_signal')
+        raise ValueError('Incorrect arguments. Format : python program.py proc_name is_signal mass_n2')
 
-    main(gen_proc=RUN_MADGRAPH,proc_name = proc,sig_flag = sig)
+    main(gen_proc=RUN_MADGRAPH,proc_name = proc,sig_flag = sig,mn2 = Mn2)

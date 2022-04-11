@@ -1,2 +1,5 @@
 codes/bin/config.py
 codes/source/MakeConfig
+codes/bin/__pycache__
+model/zprhn_leptophobic_UFO/__pycache__
+codes/bin/py.py
