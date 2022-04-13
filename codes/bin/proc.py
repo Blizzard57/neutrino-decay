@@ -155,9 +155,9 @@ def main(proc_name,sig_flag,gen_proc = True,mn2 = 1e3):
         # True only for Background
         if not sig_flag:
             f.write('set cut_decays True\n')
-       
-        if sig:
-            f.write('set Mn2 ' + str(mn2) + '\n')
+        
+        if sig_flag:
+            f.write('set Mn2 ' + str(mn2) + '\n')        
 
         # Closing the file
         f.close()
@@ -183,14 +183,13 @@ if __name__ == '__main__':
     if len(sys.argv) < 4:
         proc = EVENT_NAME
         sig = SIGNAL
-        Mn2 = MN2
     
     elif len(sys.argv) == 4:
         proc = sys.argv[1]
         sig = strtobool(sys.argv[2])
-        Mn2 = sys.argv[3]
+        mn2 = sys.argv[3]
 
     else:
-        raise ValueError('Incorrect arguments. Format : python program.py proc_name is_signal mass_n2')
+        raise ValueError('Incorrect arguments. Format : python program.py proc_name is_signal')
 
-    main(gen_proc=RUN_MADGRAPH,proc_name = proc,sig_flag = sig,mn2 = Mn2)
+    main(gen_proc=RUN_MADGRAPH,proc_name = proc,sig_flag = sig,mn2 = mn2)
