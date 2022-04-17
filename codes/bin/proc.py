@@ -114,13 +114,19 @@ def jet_matching(proc):
 def get_run_soft():
     ret_val = ''
     if RUN_PYTHIA:
-        ret_val += '1\n'
+        ret_val += 'shower = pythia8\n'
+    else:
+        ret_val += 'shower = off\n'
 
     if RUN_DELPHES:
-        ret_val += '2\n'
+        ret_val += 'detector = Delphes\n'
+    else:
+        ret_val += 'detector = off\n'
 
     if RUN_ANALYSIS:
-        ret_val += '3\n'
+        ret_val += 'analysis = MadAnalysis5\n'
+    else:
+        ret_val += 'analysis = off\n'
 
     return ret_val
 
