@@ -13,6 +13,13 @@ import subprocess
 import sys
 from config import *
 
+dec_wid = {'500'  : '1.588',
+           '750'  : '5.460',
+           '1000' : '13.02',
+           '1250' : '25.51',
+           '1400' : '35.87'
+          }
+
 def proc_to_gen(proc, signal = 'n2n2'):
     ret_val = ''
     if proc == 'n2n2' and signal == 'n2n2':
@@ -163,7 +170,8 @@ def main(proc_name,sig_flag,gen_proc = True,mn2 = 1e3):
             f.write('set cut_decays True\n')
         
         if sig_flag:
-            f.write('set Mn2 ' + str(mn2) + '\n')        
+            f.write('set Mn2 ' + str(mn2) + '\n')
+            f.write('set wn2 ' + dec_wid[str(mn2)] + '\n')        
 
         # Closing the file
         f.close()
@@ -189,7 +197,8 @@ if __name__ == '__main__':
     if len(sys.argv) < 4:
         proc = EVENT_NAME
         sig = SIGNAL
-    
+        mn2 = MN2   
+ 
     elif len(sys.argv) == 4:
         proc = sys.argv[1]
         sig = strtobool(sys.argv[2])

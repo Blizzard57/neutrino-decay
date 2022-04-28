@@ -1,4 +1,4 @@
-model_checkpoint_path: "ckpt-51"
-all_model_checkpoint_paths: "ckpt-51"
-all_model_checkpoint_timestamps: 1650550273.576269
-last_preserved_timestamp: 1650549127.2855432
+model_checkpoint_path: "ckpt-260"
+all_model_checkpoint_paths: "ckpt-260"
+all_model_checkpoint_timestamps: 1650727192.9207313
+last_preserved_timestamp: 1650725271.7134507
