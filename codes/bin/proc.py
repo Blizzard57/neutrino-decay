@@ -207,4 +207,5 @@ if __name__ == '__main__':
     else:
         raise ValueError('Incorrect arguments. Format : python program.py proc_name is_signal')
 
+    print('The process is : ',proc,' and the mass of neutrino is : ',mn2)
     main(gen_proc=RUN_MADGRAPH,proc_name = proc,sig_flag = sig,mn2 = mn2)
