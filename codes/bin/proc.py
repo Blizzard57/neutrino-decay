@@ -145,7 +145,8 @@ def main(proc_name,sig_flag,gen_proc = True,mn2 = 1e3):
         f = open(TXT_DIR + proc_name + '.txt','w')
 
         # Default Import and Variable Definitions
-        f.write('import model ' + GIT_DIR + 'model/zprhn_leptophobic_UFO\n')
+        if sig_flag:
+                f.write('import model ' + GIT_DIR + 'model/zprhn_leptophobic_UFO\n')
         f.write('define pb = p b b~\n')
         f.write('define w = w+ w-\n')
         f.write('define la = l+ l-\n')
@@ -172,7 +173,8 @@ def main(proc_name,sig_flag,gen_proc = True,mn2 = 1e3):
         if sig_flag:
             f.write('set Mn2 ' + str(mn2) + '\n')
             f.write('set wn2 ' + dec_wid[str(mn2)] + '\n')        
-
+        
+        f.write(DELPHES_CARD)
         # Closing the file
         f.close()
 
